@@ -12,7 +12,7 @@ export const App = () => {
   const [request, setRequest] = useState('');
   const [isLoading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
-  const [images, setimages] = useState([]);
+  const [images, setImages] = useState([]);
   const [isModalOpen, setModal] = useState(false);
   const [link, setLink] = useState('');
 
@@ -41,9 +41,9 @@ export const App = () => {
           newImages.push(img);
         });
         if (page === 1) {
-          setimages([...newImages]);
+          setImages([...newImages]);
         } else {
-          setimages(images => [...images, ...newImages]);
+          setImages(images => [...images, ...newImages]);
         }
         setLoading(false);
       });
