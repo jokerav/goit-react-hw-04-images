@@ -12,17 +12,24 @@ export const Modal = ({ img, closeModal }) => {
       closeModal();
     }
   };
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    window.addEventListener('click', handleClick);
-  }, []);
+  useEffect(
+    (() => {
+      window.addEventListener('keydown', handleKeyDown);
+      window.addEventListener('click', handleClick);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+        window.removeEventListener('click', handleClick);
+      };
+    },
+    [])
+  );
 
-  useEffect(() => {
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('click', handleClick);
-    };
-  }, []);
+  // useEffect(() => {
+  //   return () => {
+  //     window.removeEventListener('keydown', handleKeyDown);
+  //     window.removeEventListener('click', handleClick);
+  //   };
+  // }, []);
 
   return (
     <div className={s.Overlay}>
