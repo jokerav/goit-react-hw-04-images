@@ -75,7 +75,7 @@ export class App extends Component {
     const { images, isModalOpen, isLoading } = this.state;
     return (
       <div className={s.App}>
-        <Searchbar onSubmit={this.getInput} />
+        <Searchbar getInput={this.getInput} />
         {images.length > 0 && (
           <ImageGallery
             images={this.state.images}
