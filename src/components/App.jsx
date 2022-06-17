@@ -40,7 +40,6 @@ export const App = () => {
           const img = { id, webformatURL, largeImageURL };
           newImages.push(img);
         });
-
         if (page === 1) {
           setimages([...newImages]);
         } else {
