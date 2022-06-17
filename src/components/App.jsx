@@ -18,19 +18,29 @@ export const App = () => {
 
   const getInput = input => setRequest(input);
 
-  async function getImages() {
-    const searchRequest = `https://pixabay.com/api/?q=${request}&page=${page}&key=25937561-4be56ebc67dabae3f5d5abc9c&image_type=photo&orientation=horizontal&per_page=12`;
-    try {
-      const response = await axios.get(searchRequest);
-      return response.data;
-    } catch (error) {
-      return error.toJSON();
-    }
-  }
+  // async function getImages() {
+  //   const searchRequest = `https://pixabay.com/api/?q=${request}&page=${page}&key=25937561-4be56ebc67dabae3f5d5abc9c&image_type=photo&orientation=horizontal&per_page=12`;
+  //   try {
+  //     const response = await axios.get(searchRequest);
+  //     return response.data;
+  //   } catch (error) {
+  //     return error.toJSON();
+  //   }
+  // }
   useEffect(() => {
     setPage(1);
   }, [request]);
+
   useEffect(() => {
+    async function getImages() {
+      const searchRequest = `https://pixabay.com/api/?q=${request}&page=${page}&key=25937561-4be56ebc67dabae3f5d5abc9c&image_type=photo&orientation=horizontal&per_page=12`;
+      try {
+        const response = await axios.get(searchRequest);
+        return response.data;
+      } catch (error) {
+        return error.toJSON();
+      }
+    }
     if (request !== '') {
       setLoading(true);
       getImages().then(responce => {
