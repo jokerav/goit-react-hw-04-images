@@ -31,8 +31,8 @@ export const App = () => {
     setPage(1);
   }, [request]);
   useEffect(() => {
-    setLoading(true);
     if (request !== '') {
+      setLoading(true);
       getImages().then(responce => {
         let newImages = [];
         responce.hits.forEach(image => {
