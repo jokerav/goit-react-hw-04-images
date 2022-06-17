@@ -19,7 +19,7 @@ export const Modal = ({ img, closeModal }) => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('click', handleClick);
     };
-  }, []);
+  });
 
   return (
     <div className={s.Overlay}>
