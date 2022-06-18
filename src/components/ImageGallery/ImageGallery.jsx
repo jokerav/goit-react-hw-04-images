@@ -4,7 +4,6 @@ import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 
 const ImageGallery = ({ onImageClick, images }) => {
   return (
-    // oug
     <div onClick={e => onImageClick(e)}>
       <ul className={s.ImageGallery}>
         {images.map(img => {
